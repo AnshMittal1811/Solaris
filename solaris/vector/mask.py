@@ -811,7 +811,8 @@ def mask_to_poly_geojson(pred_arr, channel_scaling=None, reference_im=None,
             if len(polygon_gdf) > 0:
                 polygon_gdf.to_file(output_path, driver='GeoJSON')
             else:
-                save_empty_geojson(output_path, polygon_gdf.crs.to_epsg())
+		print('empty mask')
+                # save_empty_geojson(output_path, polygon_gdf.crs.to_epsg())
         elif output_type.lower() == 'csv':
             polygon_gdf.to_csv(output_path, index=False)
 
